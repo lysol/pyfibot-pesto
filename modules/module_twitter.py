@@ -43,7 +43,7 @@ def command_quote(bot, user, channel, args):
             
 
 def command_twit(bot, user, channel, args):
-    if not has_twyt:
+    if has_twyt is None:
         bot.say(channe, "twyt or one of its dependences not installed. CANNOT COMPLY.")
     try:
         t = twitter.Twitter()
@@ -58,13 +58,13 @@ def command_twit(bot, user, channel, args):
         return
 
 def handle_timerEvent(bot, counter):
-    if not has_twyt:
+    if has_twyt is None:
         return
     if counter % 180 == 0 or counter == 0:
         timed_replies(bot)
 
 def command_checkreplies(bot, user, channel, args):
-    if not has_twyt:
+    if has_twyt is None:
         bot.say(channel,"twyt or one of its dependencies not installed.  why you do this to me")
         return    
     if isAdmin(user):
@@ -97,7 +97,7 @@ def timed_replies(bot, return_status = False, channel = ''):
         bot.say(channel, "Retrieved %i tweets." % len(tweets))
 
 def command_sup(bot, user, channel, args):
-    if has_twyt and len(args.split(' ')) == 1:
+    if has_twyt is not None and len(args.split(' ')) == 1:
         try:
             t = twitter.Twitter()
             t.set_auth(config['twitter_user'], config['twitter_password'])
@@ -110,7 +110,7 @@ def command_sup(bot, user, channel, args):
 
 def handle_url(bot, user, channel, url, msg):
     # handled pasted urls
-    if 'twitter.com' in url and has_twyt:
+    if 'twitter.com' in url and has_twyt is not None:
         try:
             t = twitter.Twitter()
             t.set_auth(config['twitter_user'], config['twitter_password'])

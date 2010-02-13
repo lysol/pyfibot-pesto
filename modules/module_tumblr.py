@@ -11,7 +11,7 @@ def init(botconfig):
     config = botconfig.get("module_tumblr", None)
 
 def command_quote(bot, user, channel, args):
-    if not has_pymblr:
+    if has_pymblr is None:
         boy.say(channel, "Tumblr module not running.")
         return
     
@@ -41,9 +41,9 @@ def command_quote(bot, user, channel, args):
                 post = api.write_regular(body = cgi.escape(last_said), tags = tag_args, slug = 'quote')
                 print "Quoted %s as %s" % (bot.factory.getNick(user), post['url'])
             except TumblrError, e:
-                bot.say(channel, "That quote didn't go through because Tumblr is broke")
+                bot.say(channel, "That quote didn't go through because Tumblr returned a temporary error.")
             except Exception, e:
-                bot.say(channel, "Hey, esch, beer sucks")
+                bot.say(channel, "Something horrible happened.")
                 print e
     elif len(real_args) == 2:
         # Post an entire exchange
@@ -56,13 +56,13 @@ def command_quote(bot, user, channel, args):
             post = api.write_regular(body = full_text, tags = tag_args, slug = 'quote')
             print "Posted exchange as %s" % (post['url'])
         except TumblrError, e:
-            bot.say(channel, "That quote didn't work because of Tumblr.  Make sure you adjust the line offset if you try this again.")
+            bot.say(channel, "That quote didn't work because of a temporary issue with Tumblr.  Make sure you adjust the line offset if you try this again.")
         except Exception, e:
-            bot.say(channel, "Something horrible happened and now Josiah is straight again")
+            bot.say(channel, "Something horrible happened.")
             print e
 
 def handle_url(bot, user, channel, url, msg, times = 0):
-    if not has_pymblr:
+    if has_pymblr is None:
         return
     times = times + 1
     print "Attempting to post %s for the #%i time" % (url, times)
@@ -81,4 +81,4 @@ def handle_url(bot, user, channel, url, msg, times = 0):
                 handle_url(bot, user, channel, url, msg, times)
             else:
                 print e
-                bot.say(channel, "My ass hurts from anal sex")
+                bot.say(channel, "Something horrible happened.")
