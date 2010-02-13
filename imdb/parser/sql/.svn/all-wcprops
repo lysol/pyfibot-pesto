@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/imdbpy/!svn/ver/785/trunk/imdbpy/imdb/parser/sql
+END
+cutils.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/imdbpy/!svn/ver/719/trunk/imdbpy/imdb/parser/sql/cutils.c
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/imdbpy/!svn/ver/777/trunk/imdbpy/imdb/parser/sql/__init__.py
+END
+alchemyadapter.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/imdbpy/!svn/ver/777/trunk/imdbpy/imdb/parser/sql/alchemyadapter.py
+END
+dbschema.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/imdbpy/!svn/ver/778/trunk/imdbpy/imdb/parser/sql/dbschema.py
+END
+objectadapter.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/imdbpy/!svn/ver/785/trunk/imdbpy/imdb/parser/sql/objectadapter.py
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/126/trunk/util
+END
+timeoutdict.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/util/timeoutdict.py
+END
+pyfiurl.py
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/126/trunk/util/pyfiurl.py
+END
+ptime.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/2/trunk/util/ptime.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/2/trunk/util/__init__.py
+END
+BeautifulSoup.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/105/trunk/util/BeautifulSoup.py
+END

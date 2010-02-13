@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/imdbpy/!svn/ver/732/trunk/imdbpy/imdb/locale
+END
+imdbpy-en.po
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/imdbpy/!svn/ver/683/trunk/imdbpy/imdb/locale/imdbpy-en.po
+END
+generatepot.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/imdbpy/!svn/ver/707/trunk/imdbpy/imdb/locale/generatepot.py
+END
+imdbpy-tr.po
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/imdbpy/!svn/ver/700/trunk/imdbpy/imdb/locale/imdbpy-tr.po
+END
+msgfmt.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/imdbpy/!svn/ver/721/trunk/imdbpy/imdb/locale/msgfmt.py
+END
+imdbpy.pot
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/imdbpy/!svn/ver/681/trunk/imdbpy/imdb/locale/imdbpy.pot
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/imdbpy/!svn/ver/684/trunk/imdbpy/imdb/locale/__init__.py
+END
+rebuildmo.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/imdbpy/!svn/ver/707/trunk/imdbpy/imdb/locale/rebuildmo.py
+END
+imdbpy-it.po
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/imdbpy/!svn/ver/732/trunk/imdbpy/imdb/locale/imdbpy-it.po
+END

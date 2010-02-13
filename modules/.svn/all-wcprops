@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/179/trunk/modules
+END
+module_metacritic.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/modules/module_metacritic.py
+END
+module_nugget.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/164/trunk/modules/module_nugget.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/modules/__init__.py
+END
+module_urlsize.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/164/trunk/modules/module_urlsize.py
+END
+module_spotify.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/164/trunk/modules/module_spotify.py
+END
+module_posti.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/164/trunk/modules/module_posti.py
+END
+module_weather.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/179/trunk/modules/module_weather.py
+END
+module_pgsqlseries.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/94/trunk/modules/module_pgsqlseries.py
+END
+module_oraakkeli.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/164/trunk/modules/module_oraakkeli.py
+END
+module_calc.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/166/trunk/modules/module_calc.py
+END
+module_urltitle.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/175/trunk/modules/module_urltitle.py
+END
+module_pgsqlwanha.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/104/trunk/modules/module_pgsqlwanha.py
+END
+module_autoop.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/modules/module_autoop.py
+END
+module_bmi.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/164/trunk/modules/module_bmi.py
+END
+module_expl.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/178/trunk/modules/module_expl.py
+END
+module_serverstatus.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/104/trunk/modules/module_serverstatus.py
+END
+module_imdb.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/169/trunk/modules/module_imdb.py
+END
+module_sqliteseries.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/95/trunk/modules/module_sqliteseries.py
+END
+module_webchat.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/167/trunk/modules/module_webchat.py
+END
+module_autorejoin.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/130/trunk/modules/module_autorejoin.py
+END
+module_sqlitewanha.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/trunk/modules/module_sqlitewanha.py
+END
