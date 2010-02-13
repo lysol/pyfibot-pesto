@@ -1,0 +1,68 @@
+This project is copyright Riku Lindblad (http://code.google.com/u/riku.lindblad/)
+Original is at http://code.google.com/p/pyfibot/
+
+All documentation is the same, except for a few differences:
+
+There is a timer handler.  It fires off every second, so use the modulus
+operator to determine your interval.  See module_twitter.py for an example.
+
+Speaking of which, there are Tumblr and Twitter modules.  module_tumblr uses
+my fork of python-tumblr, available at http://github.com/lysol/pymblr. 
+module_twitter uses the twyt project (http://andrewprice.me.uk/projects/twyt/)
+to communicate with twitter.
+
+module_tumblr commands:
+
+  quote user (tags)
+  ex: quote lysol #python #irc
+
+  Posts a quote of the last thing said by user to Tumblr, with IRC formatting.
+
+
+  quote startingline numberoflines
+  ex: 
+
+  <person1> something
+  <person2> something else
+  <lysol> quote 2 2
+  ( would post the exchange between person1 and 2 to Tumblr )
+
+  Posts a quote of an exchange from IRC to tumblr, starting at the first
+  number of lines back, and quoting the second argument number of lines.
+  
+
+
+  handle_url
+  
+  Automatically posts all URLs to Tumblr, with the automatic type detection
+  used by pymblr.
+
+
+
+module_twitter commands:
+
+  twit post
+  ex: twit @douglbutt I really enjoyed your time in Austin, TX.
+
+  Posts to twitter.  Nothing special here.
+
+
+  sup user
+  ex: sup douglbutt
+
+  Retrieves the current status of a user.
+
+
+  quote user (hashtags)
+  ex: quote lysol #antglove
+
+  Posts the last thing said by a user to twitter.  The user is not attributed.
+  If you supply hashtags, they will be added to the quote.
+
+
+
+Other features added:
+
+  A builtin channel log is available in the modules at bot.channel_log.
+  See module_tumblr or module_twitter for examples of their use.  It's
+  kinda clunky and might change a little in the future.
