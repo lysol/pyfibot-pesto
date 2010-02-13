@@ -512,10 +512,10 @@ class PyFiBot(irc.IRCClient, CoreCommands):
     def stop_tracking(self, channel):
         self.channels_users[channel] = unset()
 
-    def track_add(self, channel, user):
+    def track_add(self, user, channel):
         self.channels_users[channel.lower()].add(user)
     
-    def track_remove(self, channel, user):
+    def track_remove(self, user, channel):
         self.channels_users[channel].remove(user)
 
     ###### HANDLERS ######
