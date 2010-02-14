@@ -50,11 +50,12 @@ def command_twit(bot, user, channel, args):
         t.set_auth(config['twitter_user'], config['twitter_password'])
         tweet = args
         if len(tweet) > 140:
-            bot.say(channel, "josiah too long for josiah, by %i characters" % len(tweet) - 140)
+            bot.say(channel, "josiah too long for josiah, by %i characters" % (len(tweet) - 140))
             return
         t.status_update(tweet)
-    except:
+    except Exception, e:
         bot.say(channel, "Something horrible happened and now I'm worried about having children.")
+        print e
         return
 
 def handle_timerEvent(bot, counter):
