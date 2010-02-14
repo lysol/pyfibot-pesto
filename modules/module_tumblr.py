@@ -10,6 +10,33 @@ def init(botconfig):
     global config
     config = botconfig.get("module_tumblr", None)
 
+def command_tumbl(bot, user, channel, args):
+
+    new_args = args.split(' ')
+
+    tag_args = filter(
+        lambda arg: arg[0] == '#'
+        ,new_args
+    )
+
+    real_args = filter(
+        lambda arg: arg[0] != '#'
+        ,new_args
+    )    
+
+    try:
+         api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
+         post = api.write_regular(body = cgi.escape(' '.join(real_args) + "\nposted by %s" % bot.factory.getNick(user)), tags = tag_args)
+         print "%s posted some text to Tumblr. %s" % (bot.factory.getNick(user), post['url'])
+         bot.say(channel, "Your post: %s" % post['url'])
+    except TumblrError, e:
+         bot.say(channel, "Your post didn't go through.  Feel free to try again, champ.")
+         print e
+    
+    except Exception, e:
+         bot.say(channel, "Something horrible happened.")
+         print e
+
 def command_quote(bot, user, channel, args):
     if has_pymblr is None:
         boy.say(channel, "Tumblr module not running.")
@@ -40,6 +67,7 @@ def command_quote(bot, user, channel, args):
                 api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
                 post = api.write_regular(body = cgi.escape(last_said), tags = tag_args, slug = 'quote')
                 print "Quoted %s as %s" % (bot.factory.getNick(user), post['url'])
+                bot.say(channel, "Your quote: %s" % post['url'])
             except TumblrError, e:
                 bot.say(channel, "That quote didn't go through because Tumblr returned a temporary error.")
             except Exception, e:
@@ -55,6 +83,7 @@ def command_quote(bot, user, channel, args):
             api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
             post = api.write_regular(body = full_text, tags = tag_args, slug = 'quote')
             print "Posted exchange as %s" % (post['url'])
+            bot.say(channel, "Your post: %s" % post['url'])
         except TumblrError, e:
             bot.say(channel, "That quote didn't work because of a temporary issue with Tumblr.  Make sure you adjust the line offset if you try this again.")
         except Exception, e:
