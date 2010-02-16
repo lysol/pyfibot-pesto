@@ -93,20 +93,35 @@ def command_quote(bot, user, channel, args):
 def handle_url(bot, user, channel, url, msg, times = 0):
     if has_pymblr is None:
         return
+
+    new_args = msg.split(' ')
+
+    tag_args = filter(
+        lambda arg: arg[0] == '#'
+        ,new_args
+    )
+
+    real_args = filter(
+        lambda arg: arg[0] != '#'
+        ,new_args
+    ) 
+
+    filtered_msg = ' '.join(real_args).replace(url,'').replace(':','')
+
     times = times + 1
     print "Attempting to post %s for the #%i time" % (url, times)
     if channel not in config['exclude_channels']:
         nick = bot.factory.getNick(user)
         api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
-        caption = '%s\nvia %s' % (msg.replace(url,''), nick)
+        caption = '%s\nvia %s' % (filtered_msg, nick)
         try:
             try:
                 urls = api.readurls()
                 if url not in api.readurls():
-                    post = api.autopost_url(url, caption)
+                    post = api.autopost_url(url, caption, tags)
                     print "%s posted a %s to %s" % (nick, post['type'], post['url'])
             except TumblrError:
-                post = api.autopost_url(url, caption)
+                post = api.autopost_url(url, caption, tags)
                 print "%s posted a %s to %s" % (nick, post['type'], post['url'])
 
         except TumblrError, e:
