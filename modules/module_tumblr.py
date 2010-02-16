@@ -3,7 +3,7 @@ try:
     has_pymblr = True
 except:
     print 'Error loading pymblr (or one of its dependencies).  Please install it.'
-
+from time import sleep
 import cgi    
 
 def init(botconfig):
@@ -34,7 +34,7 @@ def command_tumbl(bot, user, channel, args):
          print e
     
     except Exception, e:
-         bot.say(channel, "Something horrible happened.")
+         #bot.say(channel, "Something horrible happened.")
          print e
 
 def command_quote(bot, user, channel, args):
@@ -71,7 +71,7 @@ def command_quote(bot, user, channel, args):
             except TumblrError, e:
                 bot.say(channel, "That quote didn't go through because Tumblr returned a temporary error.")
             except Exception, e:
-                bot.say(channel, "Something horrible happened.")
+                #bot.say(channel, "Something horrible happened.")
                 print e
     elif len(real_args) == 2:
         # Post an entire exchange
@@ -87,7 +87,7 @@ def command_quote(bot, user, channel, args):
         except TumblrError, e:
             bot.say(channel, "That quote didn't work because of a temporary issue with Tumblr.  Make sure you adjust the line offset if you try this again.")
         except Exception, e:
-            bot.say(channel, "Something horrible happened.")
+            #bot.say(channel, "Something horrible happened.")
             print e
 
 def handle_url(bot, user, channel, url, msg, times = 0):
@@ -128,7 +128,8 @@ def handle_url(bot, user, channel, url, msg, times = 0):
             if (times < 4):
                 print "Error encountered, trying it again."
                 # try it again, a couple of times.
+                sleep(5)
                 handle_url(bot, user, channel, url, msg, times)
             else:
                 print e
-                bot.say(channel, "Something horrible happened.")
+                #bot.say(channel, "Something horrible happened.")
