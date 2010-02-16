@@ -98,11 +98,17 @@ def handle_url(bot, user, channel, url, msg, times = 0):
     if channel not in config['exclude_channels']:
         nick = bot.factory.getNick(user)
         api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
-        caption = 'via %s' % nick
+        caption = '%s\nvia %s' % (msg.replace(url,''), nick)
         try:
-            if url not in api.readurls():
+            try:
+                urls = api.readurls()
+                if url not in api.readurls():
+                    post = api.autopost_url(url, caption)
+                    print "%s posted a %s to %s" % (nick, post['type'], post['url'])
+            except TumblrError:
                 post = api.autopost_url(url, caption)
                 print "%s posted a %s to %s" % (nick, post['type'], post['url'])
+
         except TumblrError, e:
             if (times < 4):
                 print "Error encountered, trying it again."
