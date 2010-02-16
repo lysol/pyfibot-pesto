@@ -118,10 +118,10 @@ def handle_url(bot, user, channel, url, msg, times = 0):
             try:
                 urls = api.readurls()
                 if url not in api.readurls():
-                    post = api.autopost_url(url, caption, tags)
+                    post = api.autopost_url(url, caption, tag_args)
                     print "%s posted a %s to %s" % (nick, post['type'], post['url'])
             except TumblrError:
-                post = api.autopost_url(url, caption, tags)
+                post = api.autopost_url(url, caption, tag_args)
                 print "%s posted a %s to %s" % (nick, post['type'], post['url'])
 
         except TumblrError, e:
