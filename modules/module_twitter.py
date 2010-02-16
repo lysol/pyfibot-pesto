@@ -40,11 +40,36 @@ def command_quote(bot, user, channel, args):
                 print e
     else:
         return
-            
+
+
+def command_untwit(bot, user, channel, args):
+    if has_twyt is None:
+        bot.say(channel, "twyt or one of its dependencies is not installed.")
+        return
+    
+    if config.has_key('last_untwit'):
+        offset = datetime.utcnow() - config['last_untwit']
+        if offset.seconds < 60:
+            bot.say(channel, "You are required to wait one earth minute between requests for deletion of twitter messages.")
+            return
+
+    try:
+        t = twitter.Twitter()
+        t.set_auth(config['twitter_user'], config['twitter_password'])
+        udict = data.simplejson.loads(t.user_show(id=config['twitter_user']))
+        t.status_destroy(udict['status']['id'])
+        config['last_untwit'] = datetime.utcnow()
+        bot.say(channel, "Deleted tweet ID %i" % int(udict['status']['id']))
+        return
+    except Exception, e:
+        bot.say(channel, "Well, that didn't work.  Try again.")
+        print e
+        return
 
 def command_twit(bot, user, channel, args):
     if has_twyt is None:
-        bot.say(channe, "twyt or one of its dependences not installed. CANNOT COMPLY.")
+        bot.say(channel, "twyt or one of its dependencies is not installed. CANNOT COMPLY.")
+        return
     try:
         t = twitter.Twitter()
         t.set_auth(config['twitter_user'], config['twitter_password'])
