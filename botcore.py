@@ -247,7 +247,7 @@ class PyFiBot(irc.IRCClient, CoreCommands):
 
     nickname = "pyfibot"
     realname = "http://code.google.com/p/pyfibot/"
-    channels_users = {}
+    channels_names = {}
     channel_log = ChannelLog(line_limit = 500)
     
     # send 1 msg per second max
@@ -500,23 +500,40 @@ class PyFiBot(irc.IRCClient, CoreCommands):
         else:
             self.userLeft(prefix, None, params[0])
 
+    def irc_RPL_NAMREPLY(self, prefix, params):
+        print "Received a name reply -_- %s" % params[3]
+        channel = params[2]
+        names = params[3].split()
+        self.received_names(channel, names)
+
+    def irc_RPL_ENDOFNAMES(self, prefix, params):
+        channel = params[1]
+        pass
+
     ###### Channel/User Tracking ######
 
+    def names(self, *channels):
+        """List names of users visible to this user.
+        """
+
+        for channel in channels:
+            self.sendLine("NAMES " + channel)
+
     def received_names(self, channel, names):
-        self.channels_users[channel].update(set(names))
+        self.channels_names[channel] = set(names)
 
     def start_tracking(self, channel):
-        self.channels_users[channel] = set()
+        self.channels_names[channel] = set()
         #self.channels.append({'name': channel, 'nicks': []})
 
     def stop_tracking(self, channel):
-        self.channels_users[channel] = unset()
+        self.channels_names[channel] = unset()
 
     def track_add(self, user, channel):
-        self.channels_users[channel.lower()].add(user)
+        self.channels_names[channel.lower()].add(self.factory.getNick(user))
     
     def track_remove(self, user, channel):
-        self.channels_users[channel].remove(user)
+        self.channels_names[channel].remove(self.factory.getNick(user))
 
     ###### HANDLERS ######
 

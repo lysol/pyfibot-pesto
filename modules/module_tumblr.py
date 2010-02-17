@@ -126,6 +126,7 @@ def handle_url(bot, user, channel, url, msg, times = 0):
 
         except TumblrError, e:
             if (times < 4):
+                print e
                 print "Error encountered, trying it again."
                 # try it again, a couple of times.
                 sleep(5)
