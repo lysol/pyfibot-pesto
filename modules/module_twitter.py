@@ -110,7 +110,8 @@ def timed_replies(bot, return_status = False, channel = ''):
         time_posted = strptime(tweet.created_at,'%a %b %d %H:%M:%S +0000 %Y')
         
         # reformat the reply.  Only remove the first mention of your bot's twitter account.
-        new_text = '<%s> %s' % (tweet.user.screen_name, tweet.text.replace('@%s' % config['twitter_user'],'',1))
+        new_text = '<%s> %s' % (tweet.user.screen_name, tweet.text)
+        #new_text = '<%s> %s' % (tweet.user.screen_name, tweet.text.replace('@%s' % config['twitter_user'],'',1))
         
         if time_posted > localtime(config['last_tweet_time']):
             for channel in bot.network.channels:
