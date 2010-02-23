@@ -416,8 +416,6 @@ def create_example_conf():
       tumblr_group: yourtumblr.tumblr.com
       tumblr_password: yourtumblr
     module_twitter:
-      last_tweet_time: 1266959517.0
-      last_untwit: 2010-02-21 21:19:21.982552
       twitter_password: yourmom 
       twitter_user: yourtwitter
     """
