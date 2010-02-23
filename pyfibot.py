@@ -406,6 +406,20 @@ def create_example_conf():
         authpass: password
         channels:
           - (mysecret, password)
+    
+    cmdchar: nochar
+    module_tumblr:
+      exclude_channels:
+      - minneapolis
+      - mefi
+      tumblr_email: yourtumblremail@internet.com
+      tumblr_group: yourtumblr.tumblr.com
+      tumblr_password: yourtumblr
+    module_twitter:
+      last_tweet_time: 1266959517.0
+      last_untwit: 2010-02-21 21:19:21.982552
+      twitter_password: yourmom 
+      twitter_user: yourtwitter
     """
 
     examplefile = 'bot.config.example'
