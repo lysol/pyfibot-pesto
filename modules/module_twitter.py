@@ -33,8 +33,6 @@ def command_quote(bot, user, channel, args):
             try:
                 command_twit(bot, user, channel, "%s %s" % (last_said, tag_args) )
                 print "Quoted %s to twitter" % real_args[0]
-            except TumblrError, e:
-                bot.say(channel, "That quote didn't go through because Tumblr is broke")
             except Exception, e:
                 bot.say(channel, "Hey, esch, beer sucks")
                 print e
@@ -128,10 +126,11 @@ def command_sup(bot, user, channel, args):
         try:
             t = twitter.Twitter()
             t.set_auth(config['twitter_user'], config['twitter_password'])
-            
             udict = data.simplejson.loads(t.user_show(id=args))
             tweet = "<%s> %s" % (udict['screen_name'], udict['status']['text'])
             bot.say(channel, tweet)
+            bot.say(channel, "http://twitter.com/%s/status/%d" % \
+                (udict['screen_name'], udict['status']['id']))
         except Exception, e:
             print e
 

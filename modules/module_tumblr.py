@@ -110,7 +110,8 @@ def handle_url(bot, user, channel, url, msg, times = 0):
 
     times = times + 1
     print "Attempting to post %s for the #%i time" % (url, times)
-    if channel not in config['exclude_channels']:
+    config['exclude_users'] = []
+    if channel not in config['exclude_channels'] and user not in config['exclude_users']:
         nick = bot.factory.getNick(user)
         api = Api(config['tumblr_group'], config['tumblr_email'], config['tumblr_password'])
         caption = '%s\nvia %s' % (filtered_msg, nick)

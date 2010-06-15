@@ -13,3 +13,8 @@ def command_exec(bot, user, channel, args):
         print args
         exec args
     return
+
+def command_echo(bot, user, channel, args):
+    if isAdmin(user):
+        bot.say(channel, " ".join(args))
+    return
