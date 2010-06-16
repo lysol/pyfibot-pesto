@@ -1,2 +1,4 @@
 *.pyc
 bot.config
+.DS_Store
+.twitter_oauth
